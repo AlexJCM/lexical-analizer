@@ -1,0 +1,11 @@
+# region Description
+def fibonacci(n, temp = {0: 0, 1: 1}):
+    if n not in temp:
+        # fn = fn-1 + fn-2
+        temp[n] = fibonacci(n - 1, temp) + fibonacci(n - 2, temp)
+    print(temp)
+    return temp[n]
+
+
+print(fibonacci(500))
+# endregion

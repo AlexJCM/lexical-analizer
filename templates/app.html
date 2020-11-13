@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>PLY</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <h3>Analizador Léxico para Python</h3>
+  </div>
+
+  <!-- Form -->
+  <div class="container">
+    <form action="/" method="POST">
+      <div class="row">
+        <div class="six columns">
+          <input type="submit" value="Analizar" id="analyze_btn" />
+          <textarea class="u-full-width" id="my-textarea" placeholder="Datos de prueba">{{data}}</textarea>
+        </div>
+        <div id="my-table" class="six columns">
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                <th>Token</th>
+                <th>Lexema</th>
+                <th>Línea</th>
+                <th>Columna</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for tok in lexer %}                  
+              <tr>
+                <td>{{ tok.type }}</td>
+                <td>{{ tok.value }}</td>
+                <td>{{ tok.lineno }}</td>
+                <td>{{ (tok.lexpos - data.rfind('\n', 0, tok.lexpos)) }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>    
+    </form>
+  </div>
+</body>
+
+</html>
