@@ -5,14 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>PLY</title>
+  <title>Flask App</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
 </head>
 
 <body>
   <div class="container">
-    <h3>Analizador Léxico para Python</h3>
+      <h3>Analizador Léxico para Python</h3></br>
   </div>
 
   <!-- Form -->
@@ -20,7 +20,7 @@
     <form action="/" method="POST">
       <div class="row">
         <div class="six columns">
-          <input type="submit" value="Analizar" id="analyze_btn" />
+          <input class="button-primary" type="submit" value="Analizar" id="analyze_btn" />
           <textarea class="u-full-width" id="my-textarea" placeholder="Datos de prueba">{{data}}</textarea>
         </div>
         <div id="my-table" class="six columns">
